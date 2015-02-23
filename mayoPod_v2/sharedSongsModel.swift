@@ -12,7 +12,7 @@ private let _songsModelSharedInstance = sharedSongsModel()
 
 class sharedSongsModel {
     
-    let theSongs: [Song]
+    var theSongs: [Song]
     
     init(){
         theSongs = []

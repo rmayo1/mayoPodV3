@@ -27,7 +27,25 @@ class FirstViewController: UIViewController {
     
     ///////////////////// Singleton Code ///////////////////////////
     
+    var theSongsModel: sharedSongsModel = sharedSongsModel()
+    var theAlbumsModel: sharedAlbumsModel = sharedAlbumsModel.theSharedAlbumsModel
+    var thePlaylistsModel: sharedPlaylistsModel = sharedPlaylistsModel.theSharedPlaylistModel
     
+    var songList:[Song] = []
+    var albumList:[Album] = []
+    var playlistList:[Playlist] = []
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        theSongsModel = sharedSongsModel.theSharedSongsModel
+        
+        songList = theSongsModel.theSongs
+        albumList = theAlbumsModel.theAlbums
+        playlistList = thePlaylistsModel.thePlaylists
+
+    }
     ////////////////////////////////////////////////////////////////
     
     override func didReceiveMemoryWarning() {

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F8A53A31A9BBE0900E449EA /* sharedAlbumsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8A53A21A9BBE0900E449EA /* sharedAlbumsModel.swift */; };
+		0F8A53A51A9BBE1200E449EA /* sharedPlaylistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8A53A41A9BBE1200E449EA /* sharedPlaylistModel.swift */; };
 		4A4FB3C91A91556B00508DB5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4FB3C81A91556B00508DB5 /* AppDelegate.swift */; };
 		4A4FB3CB1A91556B00508DB5 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4FB3CA1A91556B00508DB5 /* FirstViewController.swift */; };
 		4A4FB3CD1A91556B00508DB5 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4FB3CC1A91556B00508DB5 /* SecondViewController.swift */; };
@@ -32,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F8A53A21A9BBE0900E449EA /* sharedAlbumsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = sharedAlbumsModel.swift; path = ../../mayoPod_v2/mayoPod_v2/sharedAlbumsModel.swift; sourceTree = "<group>"; };
+		0F8A53A41A9BBE1200E449EA /* sharedPlaylistModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = sharedPlaylistModel.swift; path = ../../mayoPod_v2/mayoPod_v2/sharedPlaylistModel.swift; sourceTree = "<group>"; };
 		4A4FB3C31A91556B00508DB5 /* mayoPod_v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mayoPod_v2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A4FB3C71A91556B00508DB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A4FB3C81A91556B00508DB5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +99,8 @@
 				4A4FB3CA1A91556B00508DB5 /* FirstViewController.swift */,
 				4A4FB3CC1A91556B00508DB5 /* SecondViewController.swift */,
 				4A4FB3FF1A915A3200508DB5 /* ThirdViewController.swift */,
+				0F8A53A21A9BBE0900E449EA /* sharedAlbumsModel.swift */,
+				0F8A53A41A9BBE1200E449EA /* sharedPlaylistModel.swift */,
 				4A89AF0F1A9A8A61008D4CEB /* PlaylistModel.swift */,
 				4A89AF111A9A8A97008D4CEB /* AlbumModel.swift */,
 				4A4FB3CE1A91556B00508DB5 /* Main.storyboard */,
@@ -232,9 +238,11 @@
 			files = (
 				570616771A9835A400973D69 /* sharedSongsModel.swift in Sources */,
 				4A4FB3CD1A91556B00508DB5 /* SecondViewController.swift in Sources */,
+				0F8A53A31A9BBE0900E449EA /* sharedAlbumsModel.swift in Sources */,
 				4A89AF101A9A8A61008D4CEB /* PlaylistModel.swift in Sources */,
 				4A4FB3C91A91556B00508DB5 /* AppDelegate.swift in Sources */,
 				4A4FB4001A915A3200508DB5 /* ThirdViewController.swift in Sources */,
+				0F8A53A51A9BBE1200E449EA /* sharedPlaylistModel.swift in Sources */,
 				4A89AF121A9A8A97008D4CEB /* AlbumModel.swift in Sources */,
 				4A4FB3FC1A91561200508DB5 /* SoundSPaceModel.swift in Sources */,
 				4A4FB3CB1A91556B00508DB5 /* FirstViewController.swift in Sources */,

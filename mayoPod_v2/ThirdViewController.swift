@@ -19,7 +19,24 @@ class ThirdViewController: UIViewController {
     @IBOutlet weak var playlistRemoveButton: UIButton!
     
     ///////////////////// Singleton Code ///////////////////////////
+    var theSongsModel: sharedSongsModel = sharedSongsModel.theSharedSongsModel
+    var theAlbumsModel: sharedAlbumsModel = sharedAlbumsModel.theSharedAlbumsModel
+    var thePlaylistsModel: sharedPlaylistsModel = sharedPlaylistsModel.theSharedPlaylistModel
     
+    var songList:[Song] = []
+    var albumList:[Album] = []
+    var playlistList:[Playlist] = []
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        songList = theSongsModel.theSongs
+        albumList = theAlbumsModel.theAlbums
+        playlistList = thePlaylistsModel.thePlaylists
+        
+    }
+
     
     ////////////////////////////////////////////////////////////////
     
@@ -39,7 +56,7 @@ class ThirdViewController: UIViewController {
                 i.getSongName()
                 
                 if i.getSongName() == songName {
-                    if i.getArtistName() == songArtist{
+                    if i.getSongArtist() == songArtist{
                         removeSong(count)
                         found = true
                         //errorTextView.backgroundColor = UIColor.greenColor()
@@ -60,6 +77,10 @@ class ThirdViewController: UIViewController {
         }
     }
     
+    func removeSong(songIndex: Int) {
+        songList.removeAtIndex(songIndex)
+    }
+    
     @IBAction func albumRemoval(sender: UIButton) {
         
     }
@@ -76,11 +97,6 @@ class ThirdViewController: UIViewController {
         playlistRemoveField.text = ""
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
