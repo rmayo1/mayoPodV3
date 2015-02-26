@@ -27,23 +27,12 @@ class FirstViewController: UIViewController {
     
     ///////////////////// Singleton Code ///////////////////////////
     
-    var theSongsModel: sharedSongsModel = sharedSongsModel()
-    var theAlbumsModel: sharedAlbumsModel = sharedAlbumsModel.theSharedAlbumsModel
-    var thePlaylistsModel: sharedPlaylistsModel = sharedPlaylistsModel.theSharedPlaylistModel
-    
-    var songList:[Song] = []
-    var albumList:[Album] = []
-    var playlistList:[Playlist] = []
+    var theSongsModel: sharedSongModel = sharedSongModel.theSharedSongModel
+    //sharedSongModel.songList.append(newSong)
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        theSongsModel = sharedSongsModel.theSharedSongsModel
-        
-        songList = theSongsModel.theSongs
-        albumList = theAlbumsModel.theAlbums
-        playlistList = thePlaylistsModel.thePlaylists
 
     }
     ////////////////////////////////////////////////////////////////
@@ -105,7 +94,7 @@ class FirstViewController: UIViewController {
             let newSong = Song(song: songName, artist:songArtist, year: songYear,length:songLength,composer:songComposer,album:songAlbum)
             // checks if song is already in the master song list.
             var alreadyEntered = false
-            for i in songList {
+            for i in theSongsModel.songList {
                 if i.getSongName() == songName{
                     // if songName and songArtist are the same as a song in the master list, assigns alreadyEntered to True
                     if i.getSongArtist() == songArtist{
@@ -118,7 +107,7 @@ class FirstViewController: UIViewController {
             // if the song hasn't been entered...
             if alreadyEntered == false{
                 // appends song to singleton song list
-                songList.append(newSong)
+                theSongsModel.songList.append(newSong)
                 // creates an alert screen with a success statement
                 let alertController = UIAlertController(title: "SUCCESS", message:
                     "The song has been successfully added.", preferredStyle: UIAlertControllerStyle.Alert)
@@ -127,7 +116,7 @@ class FirstViewController: UIViewController {
                 // if the song album field is filled, checks if album is already created,
                 if songAlbum != ""{
                     var foundAlbum = false
-                    for i in albumList{
+                    for i in theSongsModel.albumList{
                         if songAlbum == i.getAlbumName(){
                             // if found, appends song to album
                             foundAlbum = true
@@ -138,6 +127,7 @@ class FirstViewController: UIViewController {
                     //if album isn't found, creates the album. STILL NEED TO DO THISSSSSS
                     if foundAlbum == false{
                         let newAlbum = Album(albumName: songAlbum, artist: songArtist, year: songYear, producer: songProducer)
+                        theSongsModel.albumList.append(newAlbum)
                         
                         
                     }

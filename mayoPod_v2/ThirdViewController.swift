@@ -19,24 +19,8 @@ class ThirdViewController: UIViewController {
     @IBOutlet weak var playlistRemoveButton: UIButton!
     
     ///////////////////// Singleton Code ///////////////////////////
-    var theSongsModel: sharedSongsModel = sharedSongsModel.theSharedSongsModel
-    var theAlbumsModel: sharedAlbumsModel = sharedAlbumsModel.theSharedAlbumsModel
-    var thePlaylistsModel: sharedPlaylistsModel = sharedPlaylistsModel.theSharedPlaylistModel
     
-    var songList:[Song] = []
-    var albumList:[Album] = []
-    var playlistList:[Playlist] = []
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        songList = theSongsModel.theSongs
-        albumList = theAlbumsModel.theAlbums
-        playlistList = thePlaylistsModel.thePlaylists
-        
-    }
-
+    var theSongsModel: sharedSongModel = sharedSongModel.theSharedSongModel
     
     ////////////////////////////////////////////////////////////////
     
@@ -52,7 +36,7 @@ class ThirdViewController: UIViewController {
             var count = 0
             
             var found = false
-            for i in songList {
+            for i in theSongsModel.songList {
                 i.getSongName()
                 
                 if i.getSongName() == songName {
@@ -78,7 +62,7 @@ class ThirdViewController: UIViewController {
     }
     
     func removeSong(songIndex: Int) {
-        songList.removeAtIndex(songIndex)
+        theSongsModel.songList.removeAtIndex(songIndex)
     }
     
     @IBAction func albumRemoval(sender: UIButton) {

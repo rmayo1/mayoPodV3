@@ -7,19 +7,29 @@
 //
 
 import Foundation
+private let _songModelSharedInstance = sharedSongModel()
 
-private let _songsModelSharedInstance = sharedSongsModel()
-
-class sharedSongsModel {
+class sharedSongModel {
     
-    var theSongs: [Song]
+    var songList: [Song]
+    var albumList: [Album]
+    var playlistList: [Playlist]
     
     init(){
-        theSongs = []
+        songList = [Song]()
+        albumList = [Album]()
+        playlistList = [Playlist]()
+        // start with an empty song in the list
     }
     
+    func addSong(newSong:Song){
+        songList.append(newSong)
+    }
     
-    class var theSharedSongsModel: sharedSongsModel {
-        return _songsModelSharedInstance
+    func getFirstSongName()->NSString{
+        return songList[0].name
+    }
+    class var theSharedSongModel: sharedSongModel {
+        return _songModelSharedInstance
     }
 }
