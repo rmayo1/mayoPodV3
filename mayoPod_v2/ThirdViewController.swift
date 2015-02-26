@@ -43,21 +43,29 @@ class ThirdViewController: UIViewController {
                     if i.getSongArtist() == songArtist{
                         removeSong(count)
                         found = true
-                        //errorTextView.backgroundColor = UIColor.greenColor()
-                        //errorTextView.text = "Song successfully removed. Good job."
+                        
                     }
                 }
                 count++
             }
             if found == true{
                 refreshUI()
+                let alertController = UIAlertController(title: "SUCCESS", message:
+                    "The song has been removed!", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "GET IT OUTTA HERE!", style: UIAlertActionStyle.Default,handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+
             } else {
-                //errorTextView.backgroundColor = UIColor.redColor()
-                //errorTextView.text = "Song not found. MayoPod is confused"
+                let alertController = UIAlertController(title: "ERROR", message:
+                    "Couldn't find the song. Sure its in here?", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "I am sorry for my error, sensei.", style: UIAlertActionStyle.Default,handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
             }
         } else {
-            //errorTextView.backgroundColor = UIColor.redColor()
-            //errorTextView.text = "Enter in arist and song. MayoPod is angry!"
+            let alertController = UIAlertController(title: "Error", message:
+                "Song information is empty. Fill it up!", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Yes sir, yes sir!", style: UIAlertActionStyle.Default,handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
         }
     }
     
@@ -65,12 +73,85 @@ class ThirdViewController: UIViewController {
         theSongsModel.songList.removeAtIndex(songIndex)
     }
     
-    @IBAction func albumRemoval(sender: UIButton) {
-        
+    func removeAlbum(songIndex: Int) {
+        theSongsModel.albumList.removeAtIndex(songIndex)
     }
     
-    @IBAction func playlistRemoval(sender: UIButton) {
+    func removePlaylist(songIndex: Int) {
+        theSongsModel.playlistList.removeAtIndex(songIndex)
+    }
+    
+    @IBAction func albumRemoval(sender: UIButton) {
+        let albumName = String(albumRemoveTitleField.text as NSString)
+        let albumArtist = String(albumRemoveArtistField.text as NSString)
         
+        var valid = true
+        if albumName == ""{
+            valid = false
+        }
+        if valid == true{
+            var count = 0
+            var found = false
+            for i in theSongsModel.albumList {
+                if i.getAlbumName() == albumName{
+                    if i.getArtistName() == albumArtist {
+                        found = true
+                        removeAlbum(count)
+                    }
+                }
+                count++
+            }
+            
+            if found == true{
+                refreshUI()
+                let alertController = UIAlertController(title: "SUCCESS", message:
+                    "The album has been removed!", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Good riddance", style: UIAlertActionStyle.Default,handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+                
+            } else {
+                let alertController = UIAlertController(title: "ERROR", message:
+                    "Couldn't find the album. Sure its in here?", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Let me check again.", style: UIAlertActionStyle.Default,handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }
+        } else {
+            let alertController = UIAlertController(title: "Error", message:
+                "You know you left it blank, right?.", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Um, ah, of course. Intentional.", style: UIAlertActionStyle.Default,handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+    }
+
+    @IBAction func playlistRemoval(sender: UIButton) {
+        let playListName = String(playlistRemoveField.text as NSString)
+        if playListName != "" {
+            var found = false
+            var count = 0
+            for i in theSongsModel.playlistList{
+                if playListName == i.plistName{
+                    removePlaylist(count)
+                    found = true
+
+                }
+            }
+            if found == true {
+                let alertController = UIAlertController(title: "SUCCESS", message:
+                    "The playlist has been removed!", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Aight, man", style: UIAlertActionStyle.Default,handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+            } else if found == false{
+                let alertController = UIAlertController(title: "Error", message:
+                    "What playlist is that? I couldn't find it.", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Huh.", style: UIAlertActionStyle.Default,handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }
+        } else {
+            let alertController = UIAlertController(title: "Error", message:
+                "The playlist is blank, man...", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "So say we all.", style: UIAlertActionStyle.Default,handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
     }
     
     func refreshUI() {
