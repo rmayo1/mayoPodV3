@@ -1,6 +1,6 @@
 //
 //  FirstViewController.swift
-//  mayoPod_v2
+//  mayoPod_v3
 //
 //  Created by Robert Mayo on 2/15/15.
 //  Copyright (c) 2015 Robert Mayo. All rights reserved.
@@ -26,6 +26,11 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var songYearStepper: UIStepper!
     
     ///////////////////// Singleton Code ///////////////////////////
+    // Description: Creates a reference to the instance of the singleton
+    // Last Modified: 2/25/15
+    // Author: Robert
+    // Parameters: None
+    // Output: N/A
     
     var theSongsModel: sharedSongModel = sharedSongModel.theSharedSongModel
     //sharedSongModel.songList.append(newSong)
@@ -149,10 +154,82 @@ class FirstViewController: UIViewController {
         }
         
     }
+    
     @IBAction func addPlaylist(sender: AnyObject) {
+        let songName = String(songNameField.text as NSString)
+        let songArtist = String(songArtistField.text as NSString)
+        let songPlaylist = String(songAlbumField.text as NSString)
+        let songComposer = String(songComposerField.text as NSString)
+        let songLength = (songLengthSlider.value)
+        let songYear = (Int(songYearStepper.value))
+        let songProducer = String(songProducerField.text as NSString)
+        
+        var valid = true
+        if songName == "" || songArtist == "" || songComposer == ""{
+            valid = false
+        }
+        // if song/artist/composer field are filled...
+        if valid == true{
+            // creates an instance of song with previously created constants.
+            let newSong = Song(song: songName, artist:songArtist, year: songYear,length:songLength,composer:songComposer,album:songPlaylist)
+            // checks if song is already in the master song list.
+            var alreadyEntered = false
+            for i in theSongsModel.songList {
+                if i.getSongName() == songName{
+                    // if songName and songArtist are the same as a song in the master list, assigns alreadyEntered to True
+                    if i.getSongArtist() == songArtist{
+                        
+                        alreadyEntered = true
+                    }
+                }
+            }
+            refreshUI()
+            
+            if alreadyEntered == false{
+                theSongsModel.songList.append(newSong)
+                
+                let alertController = UIAlertController(title: "SUCCESS", message:
+                    "The playlist has been successfully added.", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Sweet, thanks.", style: UIAlertActionStyle.Default,handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+                if songPlaylist != ""{
+                    var foundAlbum = false
+                    for i in theSongsModel.albumList{
+                        if songPlaylist == i.getAlbumName(){
+                            // if found, appends song to album
+                            foundAlbum = true
+                            i.addSongToPlaylist(newSong)
+                        }
+                        
+                    }
+                    
+                    //if album isn't found, creates the album. STILL NEED TO DO THISSSSSS
+                    if foundAlbum == false{
+                        let newAlbum = Album(albumName: songPlaylist, artist: songArtist, year: songYear, producer: songProducer)
+                        theSongsModel.albumList.append(newAlbum)
+                        
+                        
+                    }
+                    
+                    
+                    }
+
+                
+                
+            }
+            
+        }
+        
+        
         
     }
     
+    
+    // Description: Refreshes the parameters for the user interface.
+    // Last modified: 2/25/2015
+    // Author: Ali
+    // Parameters: None
+    // Output: Fields updated
     func refreshUI(){
         songYearLbel.text = "2015"
         songYearStepper.value = 2015
