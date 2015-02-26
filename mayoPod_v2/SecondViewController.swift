@@ -33,24 +33,32 @@ class SecondViewController: UIViewController {
             sortedTextView.text = toText
         } else if sortSegmenter.selectedSegmentIndex==1{
             var artistList = theSongsModel.songList.sorted{$0.artist < $1.artist}
+            var toText: String = ""
             for song in artistList {
-                
+                toText += (song.artist + ": " + song.name + "\n")
             }
-            //sortedTextView.text = artList
+            sortedTextView.text = toText
         } else if sortSegmenter.selectedSegmentIndex==2{
             var albumList = theSongsModel.albumList.sorted{$0.name < $1.name}
+            var toText = ""
             for album in albumList {
-                
+                toText += (album.name + " by: " + album.artist + "\n")
+                //for song in album {
+                    //toText += (song.name + " by: " + song.artist + "\n")
+                //}
             }
-            //sortedTextView.text = artList
+            sortedTextView.text = toText
         } else if sortSegmenter.selectedSegmentIndex==3{
             var playlistList = theSongsModel.playlistList.sorted{$0.plistName < $1.plistName}
+            var toText = ""
             for playlist in playlistList {
-                
+                toText += (playlist.plistName + ": " + "\n")
+                //for Song in playlistList {
+                    //toText += (song.name + " by: " + song.artist + "\n")
+                //}
             }
-            //sortedTextView.text = artList
+            sortedTextView.text = toText
         }
-        //sortedTextView.text = theSongsModel.songList[0].getSongName()
     }
     
     override func didReceiveMemoryWarning() {
