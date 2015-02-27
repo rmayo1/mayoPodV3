@@ -77,7 +77,7 @@ class SecondViewController: UIViewController {
             for playlist in playlistList {
                 toText += (playlist.plistName + ": " + "\n")
                 for song in playlist.getSongList(){
-                    toText += (song.name + " by: " + song.artist + "\n")
+                    toText += ("\t" + song.name + " by: " + song.artist + "\n")
                 }
             }
             sortedTextView.text = toText//display the string of songs
