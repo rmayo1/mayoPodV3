@@ -268,6 +268,10 @@ class ThirdViewController: UIViewController {
         }
     }
     
+    @IBAction func removeSongFromPlaylist(sender: AnyObject) {
+        
+        
+    }
     
     
     //Func: refreshUI
