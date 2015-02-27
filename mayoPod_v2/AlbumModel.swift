@@ -75,13 +75,13 @@ class Album{
         return self.songs
     }
     
-    //Method: addSongToPlaylist
+    //Method: addSongToAlbum
     //Last Modified: 2/25/15
     //Author: Joe Delia
     //Purpose: Add a song to the this Album instance
     //Parameters: songToAdd: a Song object
     //Output: Float
-    func addSongToPlaylist(songToAdd:Song){
+    func addSongToAlbum(songToAdd:Song){
         var addSong = true //bool flag to check if song exists in album already
         for song in self.songs{
             if song.getSongName() == songToAdd.getSongName(){
