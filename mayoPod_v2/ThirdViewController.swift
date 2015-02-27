@@ -51,19 +51,36 @@ class ThirdViewController: UIViewController {
             var count = 0
             // initializes boolean for whether song has been found, defaults to false
             var found = false
+            var foundInPlaylist = false
             // goes through songList in singleton
             for i in theSongsModel.songList {
                 // if songName entered and songArtist entered match a song's info, removes song, marks found boolean as true
                 if i.getSongName() == songName {
                     if i.getSongArtist() == songArtist{
-                        removeSong(count)
-                        found = true
+                        for plist in sharedSongModel.theSharedSongModel.playlistList {
+                            for song in plist.getSongList() {
+                                if song.getSongName() == songName {
+                                    foundInPlaylist = true
+                                }
+                            }
+                        }
+                        if foundInPlaylist == false {
+                            removeSong(count)
+                            found = true
+                        }
                     }
                 }
                 count++
             }
             // if song was removed...
-            if found == true{
+            if foundInPlaylist == true{
+                // refreshes UI and alerts user.
+                refreshUI()
+                let alertController = UIAlertController(title: "ERROR", message:
+                    "The song can't be removed, its in a playlist.", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Oh, I'll go fix that.", style: UIAlertActionStyle.Default,handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }else if found == true{
                 // refreshes UI and alerts user.
                 refreshUI()
                 let alertController = UIAlertController(title: "SUCCESS", message:
@@ -265,7 +282,7 @@ class ThirdViewController: UIViewController {
             }
         }else{
             //an input field is missing
-            let alertController = UIAlertController(title: "Success", message:
+            let alertController = UIAlertController(title: "Error", message:
                 "Fill out the forms, bucko.", preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "I'll fix that.", style: UIAlertActionStyle.Default,handler: nil))
             self.presentViewController(alertController, animated: true, completion: nil)
@@ -306,8 +323,10 @@ class ThirdViewController: UIViewController {
                     playListFound = true
                     for song in theSongsModel.playlistList[playlistCount].getSongList(){
                         if song.getSongArtist() == artistName {
-                            songFound = true
-                            plist.removeSongFromPlaylist(song)
+                            if song.getSongName() == songName {
+                                songFound = true
+                                plist.removeSongFromPlaylist(song)
+                            }
                         }
                     }
                 }

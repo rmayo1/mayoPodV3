@@ -78,7 +78,7 @@ class SecondViewController: UIViewController {
             var toText = "" //string of songs, empty first
             //create the stirng of songs by adding one by one
             for playlist in playlistList {
-                toText += (playlist.plistName + ": " + "\n")
+                toText += (playlist.plistName + " (" + /*playlist.getPlaylistLength() + */ "): " + "\n")
                 for song in playlist.getSongList(){
                     toText += ("\t" + song.name + " by: " + song.artist + "\n")
                 }
