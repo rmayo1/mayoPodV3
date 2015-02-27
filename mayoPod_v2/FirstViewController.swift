@@ -201,6 +201,7 @@ class FirstViewController: UIViewController {
         songArtistField.text = ""
         songAlbumField.text = ""
         songProducerField.text = ""
+        playlistName.text = ""
     }
     
 }
