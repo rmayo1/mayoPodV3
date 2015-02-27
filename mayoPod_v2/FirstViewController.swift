@@ -127,17 +127,13 @@ class FirstViewController: UIViewController {
                             foundAlbum = true
                             i.addSongToPlaylist(newSong)
                         }
-                        
                     }
                     //if album isn't found, creates the album. STILL NEED TO DO THISSSSSS
                     if foundAlbum == false{
                         let newAlbum = Album(albumName: songAlbum, artist: songArtist, year: songYear, producer: songProducer)
                         theSongsModel.albumList.append(newAlbum)
-                        
-                        
                     }
                 }
-                
             } else {
                 // if song was already entered, creates an alert stating that the song has already been entered
                 let alertController = UIAlertController(title: "ERROR", message:
@@ -152,7 +148,6 @@ class FirstViewController: UIViewController {
             alertController.addAction(UIAlertAction(title: "Sweet, thanks.", style: UIAlertActionStyle.Default,handler: nil))
             self.presentViewController(alertController, animated: true, completion: nil)
         }
-        
     }
     
     @IBAction func addPlaylist(sender: AnyObject) {
@@ -200,28 +195,16 @@ class FirstViewController: UIViewController {
                             foundAlbum = true
                             i.addSongToPlaylist(newSong)
                         }
-                        
                     }
                     
                     //if album isn't found, creates the album. STILL NEED TO DO THISSSSSS
                     if foundAlbum == false{
                         let newAlbum = Album(albumName: songPlaylist, artist: songArtist, year: songYear, producer: songProducer)
                         theSongsModel.albumList.append(newAlbum)
-                        
-                        
                     }
-                    
-                    
-                    }
-
-                
-                
+                }
             }
-            
         }
-        
-        
-        
     }
     
     
