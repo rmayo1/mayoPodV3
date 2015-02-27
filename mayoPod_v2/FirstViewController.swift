@@ -126,7 +126,7 @@ class FirstViewController: UIViewController {
                         if songAlbum == i.getAlbumName(){
                             // if found, appends song to album
                             foundAlbum = true
-                            i.addSongToPlaylist(newSong)
+                            i.addSongToAlbum(newSong)
                         }
                     }
                     //if album isn't found, creates the album.
@@ -157,25 +157,28 @@ class FirstViewController: UIViewController {
     // Parameters: Takes button click.
     // Output: N/A
     @IBAction func addPlaylist(sender: AnyObject) {
+        // initializes playlist from textfield
         let plistName = String(playlistName.text as NSString)
         
+        // initializes boolean that will mark whether playListField is empty
         var valid = true
         if plistName == "" {
             valid = false
         }
-        
+        // if not empty, creates a new playlist.
         if valid == true {
             let newPlist = Playlist(name: plistName)
-            
+            // checks if playList is already in the playlistList
             var alreadyEntered = false
+            //goes through playlistList, changed alreadyEntered boolean to true if already entered
             for plist in theSongsModel.playlistList {
                 if plist.getPlaylistName() == plistName {
                     alreadyEntered = true
                 }
             }
-            
+            // refreshes UI
             refreshUI()
-            
+            // if playlist was added succesfully, alerts user
             if alreadyEntered == false {
                 theSongsModel.playlistList.append(newPlist)
                 
@@ -184,6 +187,21 @@ class FirstViewController: UIViewController {
                 alertController.addAction(UIAlertAction(title: "Sweet, thanks.", style: UIAlertActionStyle.Default,handler: nil))
                 self.presentViewController(alertController, animated: true, completion: nil)
             }
+            // if playlist was already in the playListList, alerts user
+            else{
+                let alertController = UIAlertController(title: "Error", message:
+                    "The playlist has already been entered", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "What?", style: UIAlertActionStyle.Default,handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }
+        }
+        // if playlist field was empty, alerts user
+        else {
+            let alertController = UIAlertController(title: "Error", message:
+                "Please fill out the playlist field.", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "Yes, dear.", style: UIAlertActionStyle.Default,handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
+            
         }
     }
     

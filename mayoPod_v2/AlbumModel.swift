@@ -49,6 +49,7 @@ class Album{
         return self.length
     }
     
+    
     func getAlbumName() -> String{
         // returns album name
         return self.name
