@@ -133,6 +133,7 @@ class FirstViewController: UIViewController {
                     if foundAlbum == false{
                         let newAlbum = Album(albumName: songAlbum, artist: songArtist, year: songYear, producer: songProducer)
                         theSongsModel.albumList.append(newAlbum)
+                        newAlbum.addSongToAlbum(newSong)
                     }
                 }
             } else {
@@ -152,7 +153,7 @@ class FirstViewController: UIViewController {
     }
     
     // Desc.: Adds song to masterList
-    // Last Modified: 2/26/15
+    // Last Modified: 2/27/15
     // Author: Joe
     // Parameters: Takes button click.
     // Output: N/A
