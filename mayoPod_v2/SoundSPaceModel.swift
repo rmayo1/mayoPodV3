@@ -43,6 +43,10 @@ class Song {
     func getSongLength() -> Float{
         return self.length
     }
+    
+    func getAlbum() -> String{
+        return self.album
+    }
 }
 
 
