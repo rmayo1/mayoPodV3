@@ -223,12 +223,33 @@ class ThirdViewController: UIViewController {
         let songName = String(plistSongName.text as NSString)
         let artistName = String(plistArtistName.text as NSString)
         
-    
+        var valid = true
+        if playListName == "" || songName == "" || artistName == "" {
+            valid = false
+        }
         
-        
-        
-      
-        
+        if valid == true {
+            var realSong = false
+            for song in theSongsModel.songList {
+                if song.getSongName() == songName {
+                    if song.getSongArtist() == artistName {
+                        for plist in theSongsModel.playlistList {
+                            if plist.getPlaylistName() == playListName {
+                                plist.addSongToPlaylist(song)
+                            }else{
+                                //Playlist name doesn't exist
+                            }
+                        }
+                    }else{
+                        //Artist isn't associated with song
+                    }
+                }else{
+                    //Song Name doesn't exist
+                }
+            }
+        }else{
+            //an input field is missing
+        }
     }
     
     
