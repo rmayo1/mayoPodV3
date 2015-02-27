@@ -230,46 +230,117 @@ class ThirdViewController: UIViewController {
         
         if valid == true {
             var realSong = false
+            var foundPlayList = false
             for song in theSongsModel.songList {
                 if song.getSongName() == songName {
                     if song.getSongArtist() == artistName {
+                        realSong = true
                         for plist in theSongsModel.playlistList {
                             if plist.getPlaylistName() == playListName {
+                                foundPlayList = true
                                 plist.addSongToPlaylist(song)
-                            }else{
-                                //Playlist name doesn't exist
-                                let alertController = UIAlertController(title: "Error", message:
-                                    "That playlist doesn't exist, bro...", preferredStyle: UIAlertControllerStyle.Alert)
-                                alertController.addAction(UIAlertAction(title: "I'll fix that", style: UIAlertActionStyle.Default,handler: nil))
-                                self.presentViewController(alertController, animated: true, completion: nil)
                             }
                         }
-                    }else{
-                        //Artist isn't associated with song
-                        let alertController = UIAlertController(title: "Error", message:
-                            "Maybe you had the right song, but that's not the right artist", preferredStyle: UIAlertControllerStyle.Alert)
-                        alertController.addAction(UIAlertAction(title: "Oops", style: UIAlertActionStyle.Default,handler: nil))
-                        self.presentViewController(alertController, animated: true, completion: nil)
                     }
-                }else{
-                    //Song Name doesn't exist
-                    let alertController = UIAlertController(title: "Error", message:
-                        "Song. name. does. not. compute.", preferredStyle: UIAlertControllerStyle.Alert)
-                    alertController.addAction(UIAlertAction(title: "Mah b", style: UIAlertActionStyle.Default,handler: nil))
-                    self.presentViewController(alertController, animated: true, completion: nil)
                 }
+            }
+            if realSong == false{
+                // song doesn't exist
+                let alertController = UIAlertController(title: "Error", message:
+                    "Couldn't find the song, honey.", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "OK, baby, I'll solve this.", style: UIAlertActionStyle.Default,handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+            } else if realSong == true && foundPlayList == false{
+                // Playlist not found
+                let alertController = UIAlertController(title: "Error", message:
+                    "Found the song, but you sure this here playlist exists?", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "I can double check...", style: UIAlertActionStyle.Default,handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+            } else if realSong == true && foundPlayList == true{
+                    //Song entered to new playlist
+                    let alertController = UIAlertController(title: "Success", message:
+                        "Song has been entered into the playlist.", preferredStyle: UIAlertControllerStyle.Alert)
+                    alertController.addAction(UIAlertAction(title: "Cool beans.", style: UIAlertActionStyle.Default,handler: nil))
+                    self.presentViewController(alertController, animated: true, completion: nil)
             }
         }else{
             //an input field is missing
-            let alertController = UIAlertController(title: "Error", message:
-                "", preferredStyle: UIAlertControllerStyle.Alert)
+            let alertController = UIAlertController(title: "Success", message:
+                "Fill out the forms, bucko.", preferredStyle: UIAlertControllerStyle.Alert)
             alertController.addAction(UIAlertAction(title: "I'll fix that.", style: UIAlertActionStyle.Default,handler: nil))
             self.presentViewController(alertController, animated: true, completion: nil)
         }
     }
     
     @IBAction func removeSongFromPlaylist(sender: AnyObject) {
+        let playListName = String(plistName.text as NSString)
+        let songName = String(plistSongName.text as NSString)
+        let artistName = String(plistArtistName.text as NSString)
         
+        var valid = true
+        if playListName == "" || songName == "" || artistName == "" {
+            valid = false
+        }
+        
+        if valid == true {/*
+            var realSong = false
+            var playListFound = false
+            for song in theSongsModel.songList {
+                if song.getSongName() == songName {
+                    if song.getSongArtist() == artistName {
+                        realSong = true
+                        for plist in theSongsModel.playlistList {
+                            if plist.getPlaylistName() == playListName {
+                                playListFound = true
+                                plist.removeSongFromPlaylist(song)
+                            }
+                        }
+                    }
+                }
+            }*/
+            var playListFound = false
+            var songFound = false
+            var playlistCount = 0
+            for plist in theSongsModel.playlistList {
+                if plist.getPlaylistName() == playListName {
+                    playListFound = true
+                    for song in theSongsModel.playlistList[playlistCount].getSongList(){
+                        if song.getSongArtist() == artistName {
+                            songFound = true
+                            plist.removeSongFromPlaylist(song)
+                        }
+                    }
+                }
+                playlistCount++
+            }
+
+            if playListFound==true && songFound == false{
+                //Playlist name dost exist, but song doesn't
+                let alertController = UIAlertController(title: "Error", message:
+                    "Found the playlist, but that song doesn't exist.", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "I can fix it.", style: UIAlertActionStyle.Default,handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+            } else if playListFound == false{
+                //Song by artist doesn't exist
+                let alertController = UIAlertController(title: "Error", message:
+                    "Playlist was not found.", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Forgive me, oh great Mayopod.", style: UIAlertActionStyle.Default,handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+            } else if songFound == true && playListFound == true{
+                // song found, and song removed
+                let alertController = UIAlertController(title: "Success", message:
+                    "Song removed from the playList.", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Hella.", style: UIAlertActionStyle.Default,handler: nil))
+                self.presentViewController(alertController, animated: true, completion: nil)
+            }
+        }else{
+            //an input field is missing
+            let alertController = UIAlertController(title: "Error", message:
+                "You seem to be missing something. Please fill out the song name, artist and playlist name.", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "I'll fix that.", style: UIAlertActionStyle.Default,handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
+        }
+
         
     }
     
