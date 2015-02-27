@@ -173,50 +173,18 @@ class FirstViewController: UIViewController {
                     alreadyEntered = true
                 }
             }
-        }
-        
-        // if song/artist/composer field are filled...
-        /*if valid == true{
-            // creates an instance of song with previously created constants.
-            let newSong = Song(song: songName, artist:songArtist, year: songYear,length:songLength,composer:songComposer,album:songPlaylist)
-            // checks if song is already in the master song list.
-            var alreadyEntered = false
-            for i in theSongsModel.songList {
-                if i.getSongName() == songName{
-                    // if songName and songArtist are the same as a song in the master list, assigns alreadyEntered to True
-                    if i.getSongArtist() == songArtist{
-                        
-                        alreadyEntered = true
-                    }
-                }
-            }
+            
             refreshUI()
             
-            if alreadyEntered == false{
-                theSongsModel.songList.append(newSong)
+            if alreadyEntered == false {
+                theSongsModel.playlistList.append(newPlist)
                 
                 let alertController = UIAlertController(title: "SUCCESS", message:
                     "The playlist has been successfully added.", preferredStyle: UIAlertControllerStyle.Alert)
                 alertController.addAction(UIAlertAction(title: "Sweet, thanks.", style: UIAlertActionStyle.Default,handler: nil))
                 self.presentViewController(alertController, animated: true, completion: nil)
-                if songPlaylist != ""{
-                    var foundAlbum = false
-                    for i in theSongsModel.albumList{
-                        if songPlaylist == i.getAlbumName(){
-                            // if found, appends song to album
-                            foundAlbum = true
-                            i.addSongToPlaylist(newSong)
-                        }
-                    }
-                    
-                    //if album isn't found, creates the album.
-                    if foundAlbum == false{
-                        let newAlbum = Album(albumName: songPlaylist, artist: songArtist, year: songYear, producer: songProducer)
-                        theSongsModel.albumList.append(newAlbum)
-                    }
-                }
             }
-        }*/
+        }
     }
     
     

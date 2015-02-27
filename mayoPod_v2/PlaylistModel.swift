@@ -83,6 +83,7 @@ class Playlist{
         return plistSong
     }
     
+    //Getter function for name of the playlist
     func getPlaylistName() -> String{
         return plistName
     }
