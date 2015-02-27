@@ -238,17 +238,33 @@ class ThirdViewController: UIViewController {
                                 plist.addSongToPlaylist(song)
                             }else{
                                 //Playlist name doesn't exist
+                                let alertController = UIAlertController(title: "Error", message:
+                                    "That playlist doesn't exist, bro...", preferredStyle: UIAlertControllerStyle.Alert)
+                                alertController.addAction(UIAlertAction(title: "I'll fix that", style: UIAlertActionStyle.Default,handler: nil))
+                                self.presentViewController(alertController, animated: true, completion: nil)
                             }
                         }
                     }else{
                         //Artist isn't associated with song
+                        let alertController = UIAlertController(title: "Error", message:
+                            "Maybe you had the right song, but that's not the right artist", preferredStyle: UIAlertControllerStyle.Alert)
+                        alertController.addAction(UIAlertAction(title: "Oops", style: UIAlertActionStyle.Default,handler: nil))
+                        self.presentViewController(alertController, animated: true, completion: nil)
                     }
                 }else{
                     //Song Name doesn't exist
+                    let alertController = UIAlertController(title: "Error", message:
+                        "Song. name. does. not. compute.", preferredStyle: UIAlertControllerStyle.Alert)
+                    alertController.addAction(UIAlertAction(title: "Mah b", style: UIAlertActionStyle.Default,handler: nil))
+                    self.presentViewController(alertController, animated: true, completion: nil)
                 }
             }
         }else{
             //an input field is missing
+            let alertController = UIAlertController(title: "Error", message:
+                "", preferredStyle: UIAlertControllerStyle.Alert)
+            alertController.addAction(UIAlertAction(title: "I'll fix that.", style: UIAlertActionStyle.Default,handler: nil))
+            self.presentViewController(alertController, animated: true, completion: nil)
         }
     }
     
