@@ -264,7 +264,7 @@
                             <constraint firstItem="P2M-dY-QwV" firstAttribute="leading" secondItem="PSu-To-DdY" secondAttribute="leadingMargin" constant="35" id="wbg-ye-CBP"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Remove" image="first" id="8t9-Gy-8mF" userLabel="Third"/>
+                    <tabBarItem key="tabBarItem" title="Edit" image="first" id="8t9-Gy-8mF" userLabel="Third"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
@@ -295,7 +295,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="TEw-5V-Tdu">
-                                <rect key="frame" x="58" y="28" width="298" height="29"/>
+                                <rect key="frame" x="38" y="28" width="298" height="29"/>
                                 <segments>
                                     <segment title="By Title"/>
                                     <segment title="By Artist"/>
