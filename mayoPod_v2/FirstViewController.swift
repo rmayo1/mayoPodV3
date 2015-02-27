@@ -24,6 +24,7 @@ class FirstViewController: UIViewController {
     @IBOutlet weak var songLengthLabel: UILabel!
     @IBOutlet weak var songLengthSlider: UISlider!
     @IBOutlet weak var songYearStepper: UIStepper!
+    @IBOutlet weak var playlistName: UITextField!
     
     ///////////////////// Singleton Code ///////////////////////////
     // Description: Creates a reference to the instance of the singleton
@@ -128,7 +129,7 @@ class FirstViewController: UIViewController {
                             i.addSongToPlaylist(newSong)
                         }
                     }
-                    //if album isn't found, creates the album. STILL NEED TO DO THISSSSSS
+                    //if album isn't found, creates the album.
                     if foundAlbum == false{
                         let newAlbum = Album(albumName: songAlbum, artist: songArtist, year: songYear, producer: songProducer)
                         theSongsModel.albumList.append(newAlbum)
@@ -150,21 +151,32 @@ class FirstViewController: UIViewController {
         }
     }
     
+    // Desc.: Adds song to masterList
+    // Last Modified: 2/26/15
+    // Author: Joe
+    // Parameters: Takes button click.
+    // Output: N/A
     @IBAction func addPlaylist(sender: AnyObject) {
-        let songName = String(songNameField.text as NSString)
-        let songArtist = String(songArtistField.text as NSString)
-        let songPlaylist = String(songAlbumField.text as NSString)
-        let songComposer = String(songComposerField.text as NSString)
-        let songLength = (songLengthSlider.value)
-        let songYear = (Int(songYearStepper.value))
-        let songProducer = String(songProducerField.text as NSString)
+        let plistName = String(playlistName.text as NSString)
         
         var valid = true
-        if songName == "" || songArtist == "" || songComposer == ""{
+        if plistName == "" {
             valid = false
         }
+        
+        if valid == true {
+            let newPlist = Playlist(name: plistName)
+            
+            var alreadyEntered = false
+            for plist in theSongsModel.playlistList {
+                if plist.getPlaylistName() == plistName {
+                    alreadyEntered = true
+                }
+            }
+        }
+        
         // if song/artist/composer field are filled...
-        if valid == true{
+        /*if valid == true{
             // creates an instance of song with previously created constants.
             let newSong = Song(song: songName, artist:songArtist, year: songYear,length:songLength,composer:songComposer,album:songPlaylist)
             // checks if song is already in the master song list.
@@ -197,14 +209,14 @@ class FirstViewController: UIViewController {
                         }
                     }
                     
-                    //if album isn't found, creates the album. STILL NEED TO DO THISSSSSS
+                    //if album isn't found, creates the album.
                     if foundAlbum == false{
                         let newAlbum = Album(albumName: songPlaylist, artist: songArtist, year: songYear, producer: songProducer)
                         theSongsModel.albumList.append(newAlbum)
                     }
                 }
             }
-        }
+        }*/
     }
     
     

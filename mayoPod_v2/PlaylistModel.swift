@@ -9,7 +9,7 @@
 import Foundation
 
 //Class: Playlist
-//Last Modified: 2/17/15
+//Last Modified: 2/26/15
 //Author: Joe Delia
 //Purpose: Object that simulates a playlist. Holds all songs added to the playlist
 class Playlist{
@@ -81,5 +81,9 @@ class Playlist{
     //Getter function used when printing list of songs in playlist (external function)
     func getSongList() -> [Song]{
         return plistSong
+    }
+    
+    func getPlaylistName() -> String{
+        return plistName
     }
 }
