@@ -61,11 +61,14 @@ class SecondViewController: UIViewController {
             
         //list all songs based on album name alphabetically
         } else if sortSegmenter.selectedSegmentIndex==2{
-            var albumList = theSongsModel.songList.sorted{$0.album < $1.album} //sort all albums by name alphabetically
+            var albumList = theSongsModel.albumList.sorted{$0.name < $1.name} //sort all albums by name alphabetically
             var toText = "" //string on songs, empty first
             //create the string of songs by adding one by one
-            for song in albumList {
-                toText += (song.name + " by: " + song.artist + " from album: " + song.album + "\n")
+            for album in albumList {
+                toText += (album.name + ": " + "\n")
+                for song in album.getSongsInAlbum(){
+                    toText += ("\t" + song.name + " by: " + song.artist + "\n")
+                }
             }
             sortedTextView.text = toText //distplay the string of songs
             
