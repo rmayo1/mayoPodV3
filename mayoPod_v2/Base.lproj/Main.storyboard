@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="49e-Tb-3d3">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -182,13 +182,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remove Songs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zkx-Qe-sqZ">
-                                <rect key="frame" x="149" y="65" width="117" height="21"/>
+                                <rect key="frame" x="149" y="28" width="117" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ndp-Hl-Qme">
-                                <rect key="frame" x="179" y="221" width="44" height="30"/>
+                                <rect key="frame" x="185" y="149" width="44" height="30"/>
                                 <state key="normal" title="Delete">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -197,26 +197,26 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Song" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P2M-dY-QwV">
-                                <rect key="frame" x="51" y="108" width="312" height="30"/>
+                                <rect key="frame" x="51" y="71" width="312" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Artist" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LV5-Eq-Kq8">
-                                <rect key="frame" x="51" y="166" width="312" height="30"/>
+                                <rect key="frame" x="51" y="111" width="312" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remove Albums" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4G-7Z-Joa">
-                                <rect key="frame" x="143" y="275" width="129" height="21"/>
+                                <rect key="frame" x="143" y="187" width="129" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="129" id="eR2-t1-Vyu"/>
+                                    <constraint firstAttribute="width" constant="129" id="kkA-Y2-mDe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PE3-bO-Nzg">
-                                <rect key="frame" x="179" y="431" width="44" height="30"/>
+                                <rect key="frame" x="185" y="295" width="44" height="30"/>
                                 <state key="normal" title="Delete">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -225,28 +225,28 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Album" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Egv-yM-P6c">
-                                <rect key="frame" x="51" y="318" width="312" height="30"/>
+                                <rect key="frame" x="51" y="216" width="312" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Artist" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Cq-87-i4h">
-                                <rect key="frame" x="51" y="376" width="312" height="30"/>
+                                <rect key="frame" x="51" y="257" width="312" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remove Playlists" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07m-0v-wJL">
-                                <rect key="frame" x="142" y="490" width="131" height="21"/>
+                                <rect key="frame" x="142" y="333" width="131" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Playlist" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4XJ-iB-PeY">
-                                <rect key="frame" x="51" y="534" width="312" height="30"/>
+                                <rect key="frame" x="51" y="362" width="312" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iL2-6l-T2p">
-                                <rect key="frame" x="179" y="588" width="44" height="30"/>
+                                <rect key="frame" x="185" y="400" width="44" height="30"/>
                                 <state key="normal" title="Delete">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -254,36 +254,80 @@
                                     <action selector="playlistRemoval:" destination="BX4-4S-5wz" eventType="touchUpInside" id="HuM-I2-JC2"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Song To Playlist" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ajj-DW-0w9">
+                                <rect key="frame" x="128" y="438" width="159" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Playlist Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BRH-hW-KLN">
+                                <rect key="frame" x="51" y="465" width="312" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Song Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qkt-Gt-TGr">
+                                <rect key="frame" x="51" y="503" width="312" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Song Artist" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="R1F-I5-9aA">
+                                <rect key="frame" x="51" y="541" width="312" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="80k-tx-7Co">
+                                <rect key="frame" x="192" y="579" width="30" height="30"/>
+                                <state key="normal" title="Add">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="editPlaylist:" destination="BX4-4S-5wz" eventType="touchUpInside" id="Xxe-pf-bQJ"/>
+                                    <action selector="playlistRemoval:" destination="BX4-4S-5wz" eventType="touchUpInside" id="wRB-ms-czW"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="PE3-bO-Nzg" firstAttribute="top" secondItem="0Cq-87-i4h" secondAttribute="bottom" constant="25" id="1V0-fh-Zyo"/>
-                            <constraint firstItem="LV5-Eq-Kq8" firstAttribute="top" secondItem="P2M-dY-QwV" secondAttribute="bottom" constant="28" id="3yL-Dv-oqe"/>
-                            <constraint firstItem="PE3-bO-Nzg" firstAttribute="leading" secondItem="iL2-6l-T2p" secondAttribute="leading" id="5mS-1c-ffI"/>
-                            <constraint firstItem="Egv-yM-P6c" firstAttribute="top" secondItem="O4G-7Z-Joa" secondAttribute="bottom" constant="22" id="6tZ-Bq-UZV"/>
-                            <constraint firstItem="07m-0v-wJL" firstAttribute="centerX" secondItem="4XJ-iB-PeY" secondAttribute="centerX" id="8fM-wq-FuX"/>
-                            <constraint firstItem="4XJ-iB-PeY" firstAttribute="top" secondItem="07m-0v-wJL" secondAttribute="bottom" constant="23" id="9gd-k6-Oev"/>
-                            <constraint firstItem="P2M-dY-QwV" firstAttribute="centerX" secondItem="Zkx-Qe-sqZ" secondAttribute="centerX" id="Cqn-5S-2U7"/>
-                            <constraint firstItem="0Cq-87-i4h" firstAttribute="trailing" secondItem="Egv-yM-P6c" secondAttribute="trailing" id="JzZ-QA-HPV"/>
-                            <constraint firstItem="Zkx-Qe-sqZ" firstAttribute="top" secondItem="XhH-Qk-CWq" secondAttribute="bottom" constant="45" id="QbG-jQ-Xv7"/>
-                            <constraint firstItem="O4G-7Z-Joa" firstAttribute="centerX" secondItem="Egv-yM-P6c" secondAttribute="centerX" id="RWh-eM-hqA"/>
-                            <constraint firstItem="0Cq-87-i4h" firstAttribute="leading" secondItem="4XJ-iB-PeY" secondAttribute="leading" id="VOJ-8h-khZ"/>
-                            <constraint firstItem="LV5-Eq-Kq8" firstAttribute="leading" secondItem="P2M-dY-QwV" secondAttribute="leading" id="Ws6-U3-SYD"/>
-                            <constraint firstItem="Ndp-Hl-Qme" firstAttribute="leading" secondItem="PSu-To-DdY" secondAttribute="leading" constant="179" id="YbY-g7-7CV"/>
-                            <constraint firstItem="O4G-7Z-Joa" firstAttribute="top" secondItem="Ndp-Hl-Qme" secondAttribute="bottom" constant="24" id="aD5-Y9-hmn"/>
-                            <constraint firstItem="O4G-7Z-Joa" firstAttribute="centerX" secondItem="PSu-To-DdY" secondAttribute="centerX" id="aIf-Dj-PEe"/>
-                            <constraint firstItem="Ndp-Hl-Qme" firstAttribute="top" secondItem="LV5-Eq-Kq8" secondAttribute="bottom" constant="25" id="bKo-9h-Cw8"/>
-                            <constraint firstItem="P2M-dY-QwV" firstAttribute="top" secondItem="Zkx-Qe-sqZ" secondAttribute="bottom" constant="22" id="gaL-2L-kBR"/>
-                            <constraint firstItem="LV5-Eq-Kq8" firstAttribute="trailing" secondItem="P2M-dY-QwV" secondAttribute="trailing" id="hcg-eI-n8Q"/>
-                            <constraint firstItem="LV5-Eq-Kq8" firstAttribute="trailing" secondItem="Egv-yM-P6c" secondAttribute="trailing" id="jJY-nm-PDQ"/>
-                            <constraint firstItem="iL2-6l-T2p" firstAttribute="top" secondItem="4XJ-iB-PeY" secondAttribute="bottom" constant="24" id="khH-Ma-YKV"/>
-                            <constraint firstItem="07m-0v-wJL" firstAttribute="top" secondItem="PE3-bO-Nzg" secondAttribute="bottom" constant="29" id="mJL-15-drM"/>
-                            <constraint firstItem="0Cq-87-i4h" firstAttribute="top" secondItem="Egv-yM-P6c" secondAttribute="bottom" constant="28" id="mXe-a6-Ia3"/>
-                            <constraint firstItem="4XJ-iB-PeY" firstAttribute="trailing" secondItem="0Cq-87-i4h" secondAttribute="trailing" id="ndL-3B-WRh"/>
-                            <constraint firstItem="LV5-Eq-Kq8" firstAttribute="leading" secondItem="Egv-yM-P6c" secondAttribute="leading" id="old-Vf-cPS"/>
-                            <constraint firstItem="0Cq-87-i4h" firstAttribute="leading" secondItem="Egv-yM-P6c" secondAttribute="leading" id="vNA-Pf-Min"/>
-                            <constraint firstItem="Ndp-Hl-Qme" firstAttribute="leading" secondItem="PE3-bO-Nzg" secondAttribute="leading" id="w8I-or-KZE"/>
-                            <constraint firstItem="P2M-dY-QwV" firstAttribute="leading" secondItem="PSu-To-DdY" secondAttribute="leadingMargin" constant="35" id="wbg-ye-CBP"/>
+                            <constraint firstItem="80k-tx-7Co" firstAttribute="top" secondItem="R1F-I5-9aA" secondAttribute="bottom" constant="8" symbolic="YES" id="2Lz-JI-407"/>
+                            <constraint firstItem="BRH-hW-KLN" firstAttribute="trailing" secondItem="Qkt-Gt-TGr" secondAttribute="trailing" id="3nS-qW-o6A"/>
+                            <constraint firstItem="PE3-bO-Nzg" firstAttribute="top" secondItem="0Cq-87-i4h" secondAttribute="bottom" constant="8" symbolic="YES" id="5eV-SS-rvk"/>
+                            <constraint firstItem="Ajj-DW-0w9" firstAttribute="centerX" secondItem="BRH-hW-KLN" secondAttribute="centerX" id="6t2-hI-6M1"/>
+                            <constraint firstItem="Qkt-Gt-TGr" firstAttribute="top" secondItem="BRH-hW-KLN" secondAttribute="bottom" constant="8" symbolic="YES" id="900-3F-hAz"/>
+                            <constraint firstItem="P2M-dY-QwV" firstAttribute="leading" secondItem="PSu-To-DdY" secondAttribute="leadingMargin" constant="35" id="AFN-0s-nyb"/>
+                            <constraint firstItem="Egv-yM-P6c" firstAttribute="leading" secondItem="LV5-Eq-Kq8" secondAttribute="leading" id="BQR-A8-Qvz"/>
+                            <constraint firstItem="Ajj-DW-0w9" firstAttribute="top" secondItem="iL2-6l-T2p" secondAttribute="bottom" constant="8" symbolic="YES" id="Bcn-VK-CIY"/>
+                            <constraint firstItem="BRH-hW-KLN" firstAttribute="leading" secondItem="Qkt-Gt-TGr" secondAttribute="leading" id="Bza-PV-s6t"/>
+                            <constraint firstItem="Ndp-Hl-Qme" firstAttribute="top" secondItem="LV5-Eq-Kq8" secondAttribute="bottom" constant="8" symbolic="YES" id="DFO-w6-JQR"/>
+                            <constraint firstItem="P2M-dY-QwV" firstAttribute="top" secondItem="Zkx-Qe-sqZ" secondAttribute="bottom" constant="22" id="HVc-iZ-S3e"/>
+                            <constraint firstItem="07m-0v-wJL" firstAttribute="centerX" secondItem="PE3-bO-Nzg" secondAttribute="centerX" id="Hlt-ne-req"/>
+                            <constraint firstItem="R1F-I5-9aA" firstAttribute="leading" secondItem="Qkt-Gt-TGr" secondAttribute="leading" id="KM9-0j-3X8"/>
+                            <constraint firstItem="Egv-yM-P6c" firstAttribute="centerX" secondItem="O4G-7Z-Joa" secondAttribute="centerX" id="KRT-Dx-79F"/>
+                            <constraint firstItem="PE3-bO-Nzg" firstAttribute="leading" secondItem="iL2-6l-T2p" secondAttribute="leading" id="Kwi-l8-6G0"/>
+                            <constraint firstItem="Zkx-Qe-sqZ" firstAttribute="top" secondItem="XhH-Qk-CWq" secondAttribute="bottom" constant="8" symbolic="YES" id="N2V-Y2-ph9"/>
+                            <constraint firstItem="4XJ-iB-PeY" firstAttribute="leading" secondItem="BRH-hW-KLN" secondAttribute="leading" id="Nxs-Tk-kRd"/>
+                            <constraint firstItem="LV5-Eq-Kq8" firstAttribute="centerX" secondItem="PSu-To-DdY" secondAttribute="centerX" id="Nyb-Qo-sp5"/>
+                            <constraint firstItem="P2M-dY-QwV" firstAttribute="trailing" secondItem="LV5-Eq-Kq8" secondAttribute="trailing" id="O2d-4g-bfZ"/>
+                            <constraint firstItem="80k-tx-7Co" firstAttribute="centerX" secondItem="R1F-I5-9aA" secondAttribute="centerX" id="OMk-dE-E5p"/>
+                            <constraint firstItem="O4G-7Z-Joa" firstAttribute="top" secondItem="Ndp-Hl-Qme" secondAttribute="bottom" constant="8" symbolic="YES" id="Pyt-Tv-Hic"/>
+                            <constraint firstItem="4XJ-iB-PeY" firstAttribute="top" secondItem="07m-0v-wJL" secondAttribute="bottom" constant="8" symbolic="YES" id="Qe4-nY-scR"/>
+                            <constraint firstItem="R1F-I5-9aA" firstAttribute="trailing" secondItem="Qkt-Gt-TGr" secondAttribute="trailing" id="TEv-3D-MUX"/>
+                            <constraint firstItem="R1F-I5-9aA" firstAttribute="top" secondItem="Qkt-Gt-TGr" secondAttribute="bottom" constant="8" symbolic="YES" id="Vij-hO-I4D"/>
+                            <constraint firstItem="BRH-hW-KLN" firstAttribute="top" secondItem="Ajj-DW-0w9" secondAttribute="bottom" constant="6" id="Vno-z5-aXy"/>
+                            <constraint firstItem="0Cq-87-i4h" firstAttribute="leading" secondItem="Egv-yM-P6c" secondAttribute="leading" id="Z9F-QS-KgP"/>
+                            <constraint firstItem="P2M-dY-QwV" firstAttribute="leading" secondItem="LV5-Eq-Kq8" secondAttribute="leading" id="a1p-Sb-tzJ"/>
+                            <constraint firstItem="Egv-yM-P6c" firstAttribute="trailing" secondItem="0Cq-87-i4h" secondAttribute="trailing" id="aE5-rp-8zS"/>
+                            <constraint firstItem="P2M-dY-QwV" firstAttribute="centerX" secondItem="Zkx-Qe-sqZ" secondAttribute="centerX" id="aIL-yc-dtk"/>
+                            <constraint firstItem="LV5-Eq-Kq8" firstAttribute="top" secondItem="P2M-dY-QwV" secondAttribute="bottom" constant="10" id="dTq-mh-RwZ"/>
+                            <constraint firstItem="Egv-yM-P6c" firstAttribute="top" secondItem="O4G-7Z-Joa" secondAttribute="bottom" constant="8" symbolic="YES" id="euw-dH-3Dv"/>
+                            <constraint firstItem="Ndp-Hl-Qme" firstAttribute="leading" secondItem="PE3-bO-Nzg" secondAttribute="leading" id="hPP-HI-GBi"/>
+                            <constraint firstItem="iL2-6l-T2p" firstAttribute="top" secondItem="4XJ-iB-PeY" secondAttribute="bottom" constant="8" symbolic="YES" id="jEn-Ib-KZx"/>
+                            <constraint firstItem="07m-0v-wJL" firstAttribute="top" secondItem="PE3-bO-Nzg" secondAttribute="bottom" constant="8" symbolic="YES" id="mxB-IC-dYo"/>
+                            <constraint firstItem="O4G-7Z-Joa" firstAttribute="centerX" secondItem="Ndp-Hl-Qme" secondAttribute="centerX" id="qeM-nc-DsB"/>
+                            <constraint firstItem="Egv-yM-P6c" firstAttribute="trailing" secondItem="LV5-Eq-Kq8" secondAttribute="trailing" id="rD7-ny-g67"/>
+                            <constraint firstItem="0Cq-87-i4h" firstAttribute="top" secondItem="Egv-yM-P6c" secondAttribute="bottom" constant="11" id="rMT-oI-6vx"/>
+                            <constraint firstItem="4XJ-iB-PeY" firstAttribute="trailing" secondItem="BRH-hW-KLN" secondAttribute="trailing" id="sFs-c7-jqL"/>
+                            <constraint firstItem="4XJ-iB-PeY" firstAttribute="trailing" secondItem="0Cq-87-i4h" secondAttribute="trailing" id="u7a-JZ-EL3"/>
+                            <constraint firstItem="4XJ-iB-PeY" firstAttribute="leading" secondItem="0Cq-87-i4h" secondAttribute="leading" id="uwv-De-SZe"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Edit" image="first" id="8t9-Gy-8mF" userLabel="Third"/>
@@ -295,6 +339,9 @@
                         <outlet property="albumRemoveTitleField" destination="Egv-yM-P6c" id="Z56-iV-CVL"/>
                         <outlet property="playlistRemoveButton" destination="iL2-6l-T2p" id="24e-We-ZOl"/>
                         <outlet property="playlistRemoveField" destination="4XJ-iB-PeY" id="VPg-xU-INH"/>
+                        <outlet property="plistArtistName" destination="R1F-I5-9aA" id="iTi-D6-9J3"/>
+                        <outlet property="plistName" destination="BRH-hW-KLN" id="RtP-Gu-MMD"/>
+                        <outlet property="plistSongName" destination="Qkt-Gt-TGr" id="AHi-TI-QBT"/>
                         <outlet property="songRemoveArtistField" destination="LV5-Eq-Kq8" id="4al-ui-gW2"/>
                         <outlet property="songRemoveButton" destination="Ndp-Hl-Qme" id="7ae-uU-e40"/>
                         <outlet property="songRemoveSongField" destination="P2M-dY-QwV" id="pZw-YE-U0l"/>

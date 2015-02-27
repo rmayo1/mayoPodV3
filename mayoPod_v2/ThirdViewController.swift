@@ -23,6 +23,9 @@ class ThirdViewController: UIViewController {
     @IBOutlet weak var playlistRemoveField: UITextField!
     @IBOutlet weak var playlistRemoveButton: UIButton!
     
+    @IBOutlet weak var plistSongName: UITextField!
+    @IBOutlet weak var plistName: UITextField!
+    @IBOutlet weak var plistArtistName: UITextField!
     ///////////////////// Singleton Code ///////////////////////////
     // declares an instance of the singleton model
     var theSongsModel: sharedSongModel = sharedSongModel.theSharedSongModel
@@ -214,6 +217,21 @@ class ThirdViewController: UIViewController {
             self.presentViewController(alertController, animated: true, completion: nil)
         }
     }
+    
+    @IBAction func editPlaylist(sender: UIButton) {
+        let playListName = String(plistName.text as NSString)
+        let songName = String(plistSongName.text as NSString)
+        let artistName = String(plistArtistName.text as NSString)
+        
+    
+        
+        
+        
+      
+        
+    }
+    
+    
     
     //Func: refreshUI
     //Last Modified: 2/26/15
