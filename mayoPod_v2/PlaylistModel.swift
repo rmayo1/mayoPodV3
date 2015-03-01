@@ -3,8 +3,8 @@
 //  mayoPod_v2
 //
 //  Created by Grayson Wilkins on 2/22/15.
-//  Copyright (c) 2015 Robert Mayo. All rights reserved.
-//
+//  Copyright (c) 2015 Mayo Industries. All rights reserved.
+//  by Ali Akhtar, Joshua Chang, Robert Mayo, Joe Delia, Grayson Wilkins
 
 import Foundation
 
@@ -47,29 +47,26 @@ class Playlist{
     }
     
     //Method: removeSongFromPlaylist(Song)
-    //Last Modified: 2/17/15
+    //Last Modified: 3/1/15
     //Author: Joe Delia
     //Purpose: Takes in a song parameter, checks to see if the song is in the playlist, and removes that song from the playlist, or shows an error message indicating song is not in playlist.
     //Parameters: songToRemove - Song that will be removed from playlist
-    //Output: none
+    //Input: song that is to be removed
     func removeSongFromPlaylist(songToRemove:Song){
         var count = 0
-        var songRemoved = false
         for song in plistSong{
             if song.getSongName() == songToRemove.getSongName(){
                 plistSong.removeAtIndex(count)
-                songRemoved = true
             }
             count++
         }
-        if songRemoved{
-            //Song Successfully removed from playlist
-        }else{
-            //Song was not in playlist
-        }
     }
     
-    //Getter function for total length of songs in playlist
+    //Func: getPlaylistLength()
+    //Last Modified: 2/26/15
+    //Author: Joe Delia
+    //Purpose: returns length of all of songs combined
+    //Output: double for length of songs combined
     func getPlaylistLength() -> Double{
         var plistLength = 0.0
         for song in plistSong{
@@ -78,12 +75,20 @@ class Playlist{
         return plistLength
     }
     
-    //Getter function used when printing list of songs in playlist (external function)
+    //Func: getSongList()
+    //Last Modified: 2/26/15
+    //Author: Joe Delia
+    //Purpose: returns song list
+    //Output: list comprised of all of a playlist's songs
     func getSongList() -> [Song]{
         return plistSong
     }
     
-    //Getter function for name of the playlist
+    //Func: getPlaylistName()
+    //Last Modified: 2/26/15
+    //Author: Joe Delia
+    //Purpose: returns name of the playlist
+    //Output: string of the playlist's name
     func getPlaylistName() -> String{
         return plistName
     }

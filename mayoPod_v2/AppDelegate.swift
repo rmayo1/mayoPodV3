@@ -3,8 +3,9 @@
 //  mayoPod_v2
 //
 //  Created by Robert Mayo on 2/15/15.
-//  Copyright (c) 2015 Robert Mayo. All rights reserved.
-//
+//  Copyright (c) 2015 Mayo Industries. All rights reserved.
+//  by Ali Akhtar, Joshua Chang, Robert Mayo, Joe Delia, Grayson Wilkins
+
 
 import UIKit
 

@@ -3,8 +3,8 @@
 //  mayoPod_v2
 //
 //  Created by Robert Mayo on 2/15/15.
-//  Copyright (c) 2015 Robert Mayo. All rights reserved.
-//
+//  Copyright (c) 2015 Mayo Industries. All rights reserved.
+//  by Ali Akhtar, Joshua Chang, Robert Mayo, Joe Delia, Grayson Wilkins
 
 import UIKit
 // Desc.: Second view, responsible listing songs, artist, albums, and playlists.
@@ -78,7 +78,19 @@ class SecondViewController: UIViewController {
             var toText = "" //string of songs, empty first
             //create the stirng of songs by adding one by one
             for playlist in playlistList {
-                toText += (playlist.plistName + " (" + /*playlist.getPlaylistLength() + */ "): " + "\n")
+                // creates strings out of length to convert to min:sec
+                var length = playlist.getPlaylistLength();
+                // sets constant variable second to equal value of slider modulo 60
+                let seconds = (length%60)
+                // sets constant variable slider to total - seconds % 60
+                let minutes = (length-seconds)/60
+                // sets UIlabel text to be a string of minutes:seconds
+                var albumLength = String(Int(minutes))+":"+String(Int(seconds))
+                // adds a zero before seconds if second is less than 10.
+                if seconds < 10{
+                    albumLength = String(Int(minutes))+":0"+String(Int(seconds))
+                }
+                toText += (playlist.plistName + " ("+albumLength+" long): " + "\n")
                 for song in playlist.getSongList(){
                     toText += ("\t" + song.name + " by: " + song.artist + "\n")
                 }

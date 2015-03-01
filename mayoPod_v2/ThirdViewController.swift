@@ -3,8 +3,8 @@
 //  mayoPod_v2
 //
 //  Created by Robert Mayo on 2/15/15.
-//  Copyright (c) 2015 Robert Mayo. All rights reserved.
-//
+//  Copyright (c) 2015 Mayo Industries. All rights reserved.
+//  by Ali Akhtar, Joshua Chang, Robert Mayo, Joe Delia, Grayson Wilkins
 
 import UIKit
 
@@ -27,8 +27,11 @@ class ThirdViewController: UIViewController {
     @IBOutlet weak var plistName: UITextField!
     @IBOutlet weak var plistArtistName: UITextField!
     ///////////////////// Singleton Code ///////////////////////////
+    
     // declares an instance of the singleton model
     var theSongsModel: sharedSongModel = sharedSongModel.theSharedSongModel
+    
+    ////////////////////////////////////////////////////////////////
     
     //Func: songRemoval
     //Last Modified: 2/26/15
@@ -115,7 +118,7 @@ class ThirdViewController: UIViewController {
     
     //Func: removeAlbum
     //Last Modified: 2/26/15
-    //Author: Rob
+    //Author: Ali
     //Purpose: Removes album at a given index.
     //Input: Integer for song index
     func removeAlbum(songIndex: Int) {
@@ -124,7 +127,7 @@ class ThirdViewController: UIViewController {
     
     //Func: removePlaylist
     //Last Modified: 2/26/15
-    //Author: Rob
+    //Author: Ali
     //Purpose: Removes playlist at a given index.
     //Input: Integer for song index
     func removePlaylist(songIndex: Int) {
@@ -133,7 +136,7 @@ class ThirdViewController: UIViewController {
     
     //Func: albumRemoval
     //Last Modified: 2/26/15
-    //Author: Rob
+    //Author: Ali
     //Purpose: Compares info in two fields to list of albums, removes album is found
     //Input: Button click
     @IBAction func albumRemoval(sender: UIButton) {
@@ -213,6 +216,7 @@ class ThirdViewController: UIViewController {
             }
             // if playlist was removed, alerts user and refreshes UI
             if found == true {
+                refreshUI()
                 let alertController = UIAlertController(title: "SUCCESS", message:
                     "The playlist has been removed!", preferredStyle: UIAlertControllerStyle.Alert)
                 alertController.addAction(UIAlertAction(title: "Aight, man", style: UIAlertActionStyle.Default,handler: nil))
@@ -235,24 +239,36 @@ class ThirdViewController: UIViewController {
         }
     }
     
+    //Func: editPlaylist
+    //Last Modified: 3/1/15
+    //Author: Rob + Joe
+    //Purpose: Adds an entered song into an entered playlist
+    //Input: Button click
     @IBAction func editPlaylist(sender: UIButton) {
+        // initializes values from fields for playlist adding
         let playListName = String(plistName.text as NSString)
         let songName = String(plistSongName.text as NSString)
         let artistName = String(plistArtistName.text as NSString)
         
+        // initializes boolean to true, sets to false if any field is blank
         var valid = true
         if playListName == "" || songName == "" || artistName == "" {
             valid = false
         }
-        
+        //if the fields are filled...
         if valid == true {
+            // sets boolean for if song is real, and is the playlist is found
             var realSong = false
             var foundPlayList = false
+            //goes through list of all songs
             for song in theSongsModel.songList {
+                // if songs name + song artist entered matches one in the master song list
                 if song.getSongName() == songName {
                     if song.getSongArtist() == artistName {
+                        // sets song as true, searches for playlist
                         realSong = true
                         for plist in theSongsModel.playlistList {
+                            // if playlist is found, marks found as true and adds song to playlist
                             if plist.getPlaylistName() == playListName {
                                 foundPlayList = true
                                 plist.addSongToPlaylist(song)
@@ -289,48 +305,43 @@ class ThirdViewController: UIViewController {
         }
     }
     
+    //Func: removeSongFromPlaylist
+    //Last Modified: 3/1/15
+    //Author: Rob + Joe
+    //Purpose: Removed a song from a playlist.
+    //Input: Button click
     @IBAction func removeSongFromPlaylist(sender: AnyObject) {
+        // initializes values from entered field values for removal
         let playListName = String(plistName.text as NSString)
         let songName = String(plistSongName.text as NSString)
         let artistName = String(plistArtistName.text as NSString)
-        
+        // initializes boolean to true, sets to false if a field is empty
         var valid = true
         if playListName == "" || songName == "" || artistName == "" {
             valid = false
         }
-        
-        if valid == true {/*
-            var realSong = false
-            var playListFound = false
-            for song in theSongsModel.songList {
-                if song.getSongName() == songName {
-                    if song.getSongArtist() == artistName {
-                        realSong = true
-                        for plist in theSongsModel.playlistList {
-                            if plist.getPlaylistName() == playListName {
-                                playListFound = true
-                                plist.removeSongFromPlaylist(song)
-                            }
-                        }
-                    }
-                }
-            }*/
+        // if fields are filled...
+        if valid == true {
+            // initialises booleans for is playlist and song is found
             var playListFound = false
             var songFound = false
-            var playlistCount = 0
+            // goes through list of playlists
             for plist in theSongsModel.playlistList {
+                // if playlist entered matches an existing playlist...
                 if plist.getPlaylistName() == playListName {
+                    // sets playlist found to true, goes through songs in playlist
                     playListFound = true
-                    for song in theSongsModel.playlistList[playlistCount].getSongList(){
+                    for song in plist.getSongList(){
+                        // if songfield info matches an existing song...
                         if song.getSongArtist() == artistName {
                             if song.getSongName() == songName {
+                                // sets song found to true, removes song from list.
                                 songFound = true
                                 plist.removeSongFromPlaylist(song)
                             }
                         }
                     }
                 }
-                playlistCount++
             }
 
             if playListFound==true && songFound == false{
@@ -347,6 +358,7 @@ class ThirdViewController: UIViewController {
                 self.presentViewController(alertController, animated: true, completion: nil)
             } else if songFound == true && playListFound == true{
                 // song found, and song removed
+                refreshUI()
                 let alertController = UIAlertController(title: "Success", message:
                     "Song removed from the playList.", preferredStyle: UIAlertControllerStyle.Alert)
                 alertController.addAction(UIAlertAction(title: "Hella.", style: UIAlertActionStyle.Default,handler: nil))
@@ -374,6 +386,9 @@ class ThirdViewController: UIViewController {
         albumRemoveTitleField.text = ""
         albumRemoveArtistField.text = ""
         playlistRemoveField.text = ""
+        plistArtistName.text = ""
+        plistName.text = ""
+        plistSongName.text = ""
     }
     
 
